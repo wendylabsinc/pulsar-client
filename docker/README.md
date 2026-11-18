@@ -7,7 +7,6 @@ This directory contains Docker Compose configurations for testing the PulsarClie
 1. **Standalone Mode** (`docker-compose.yml`)
    - Single Pulsar instance for basic testing
    - Includes Toxiproxy for network failure simulation
-   - Optional Pulsar Manager UI
 
 2. **Cluster Mode** (`docker-compose.cluster.yml`)
    - Full Pulsar cluster with Zookeeper, BookKeeper, and Broker
@@ -29,9 +28,6 @@ This directory contains Docker Compose configurations for testing the PulsarClie
 
 # With authentication
 ../scripts/test-env.sh start --auth
-
-# With UI
-../scripts/test-env.sh start --ui
 ```
 
 ### Stop Pulsar
@@ -56,7 +52,6 @@ This directory contains Docker Compose configurations for testing the PulsarClie
 - Admin API: `http://localhost:8080`
 - Toxiproxy Pulsar: `pulsar://localhost:16650`
 - Toxiproxy API: `http://localhost:8474`
-- Pulsar Manager UI: `http://localhost:9527` (if enabled)
 
 ### Authentication Mode
 - Pulsar Broker: `pulsar://localhost:6651`

@@ -29,7 +29,6 @@ function usage() {
     echo "Options:"
     echo "  --cluster     Use full cluster setup"
     echo "  --auth        Use authentication setup"
-    echo "  --ui          Include Pulsar Manager UI"
     echo "  --timeout N   Wait timeout in seconds (default: 120)"
 }
 
@@ -97,10 +96,6 @@ function show_connection_info() {
         echo "  Toxiproxy API: http://localhost:8474"
     fi
     
-    if docker ps | grep -q pulsar-manager; then
-        echo "  Pulsar Manager UI: http://localhost:9527"
-    fi
-    
     if [[ "$COMPOSE_FILE" == *"auth"* ]]; then
         echo -e "\n${YELLOW}Authentication Tokens:${NC}"
         echo "  Admin Token:"
@@ -122,10 +117,6 @@ while [[ $# -gt 0 ]]; do
             ;;
         --auth)
             COMPOSE_FILE="docker-compose.auth.yml"
-            shift
-            ;;
-        --ui)
-            COMPOSE_ARGS="$COMPOSE_ARGS --profile ui"
             shift
             ;;
         --timeout)
